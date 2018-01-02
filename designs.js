@@ -18,6 +18,8 @@ function makeGrid() {
     	}
     }	
 }
+
+//drag and draw
 function makeColor() {
 	var draw = false;
 	$('#pixel_canvas').on('mousedown', 'td', function(){
@@ -36,6 +38,12 @@ function makeColor() {
 		else {
 			return;
 		}
+
+	//prevents coloring after reentering the grid 
+	$('#pixel_canvas').on('mouseleave', function(){ 
+		draw = false;
+		return;	
+	});
 	});
 }
 
