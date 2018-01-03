@@ -1,15 +1,14 @@
 // Select color input
 // Select size input
-
 // When size is submitted by the user, call makeGrid()
 
 function makeGrid() {
 	let rows = $('#input_height').val();
 	let cols = $('#input_width').val();
-
+	
 	//remove the previous designs
 	$('#pixel_canvas').children().remove();
-
+	
 	//loops to draw the grid
 	for (let i = 0 ; i < rows ; i++) {
     	$('#pixel_canvas').append('<tr></tr>');
@@ -19,17 +18,14 @@ function makeGrid() {
     }	
 }
 
-
 function drawDelete() {
 	var draw = false;
 	var draw_del = false;
 	var bk_color = '';
-
 	// stops the right click from displaying menu 
 	document.oncontextmenu = function() {
 	return false;
 	};
-
 	//colors or delete the color with left/right click
 	$('#pixel_canvas').on('mousedown', 'td', function(event) {
 		switch (event.which) {
@@ -48,7 +44,6 @@ function drawDelete() {
 				break;
 		}	
 	});
-
 	//prevents actions while the mouse is up
 	$('#pixel_canvas').on('mouseup', 'td', function(event) {
 		switch (event.which) {
@@ -64,7 +59,6 @@ function drawDelete() {
 				break;
 		}		
 	});
-
 	//paints and deletes on mouseenter (left/right click)
 	$('#pixel_canvas').on('mouseenter', 'td', function(){
 		if(draw_del) {
@@ -76,13 +70,12 @@ function drawDelete() {
 		else {
 			return;
 		}
-
 	//prevents coloring after reentering the grid 
 	$('#pixel_canvas').on('mouseleave', function(){ 
 		draw_del = false;
 		draw = false;
 		return;	
-	});
+		});
 	});
 }
 
@@ -91,7 +84,5 @@ function drawDelete() {
 $('form').on('submit', function(e) {	
 	e.preventDefault();
 	makeGrid();
-	// makeColor();
-	// deleteColor();
 	drawDelete();
 });
