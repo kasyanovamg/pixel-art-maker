@@ -79,10 +79,18 @@ function drawDelete() {
 	});
 }
 
+//function to fill the grid
+function fillGrid() {
+	$('#fill_grid').click(function() {
+		var bg_color = $('#bg_colorPicker').val();
+		$('#pixel_canvas').css('background-color', bg_color);
+	});
+}
 
 //calling functions on submit
 $('form').on('submit', function(e) {	
 	e.preventDefault();
 	makeGrid();
 	drawDelete();
+	fillGrid()
 });
