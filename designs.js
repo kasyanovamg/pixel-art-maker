@@ -19,46 +19,25 @@ function makeGrid() {
     }	
 }
 
-//drag and draw
-function makeColor() {
+
+function drawDelete() {
 	var draw = false;
-	$('#pixel_canvas').on('mousedown', 'td', function(){
-		draw = true; 
-		var color = $('#colorPicker').val();
-		$(this).css('background-color', color);
-	});
-	$('#pixel_canvas').on('mouseup', 'td', function() {
-		draw=false;
-	});
-	$('#pixel_canvas').on('mouseenter', 'td', function(){
-		if(draw) {
-			var color = $('#colorPicker').val();
-			$(this).css('background-color', color); 
-		}
-		else {
-			return;
-		}
-
-	//prevents coloring after reentering the grid 
-	$('#pixel_canvas').on('mouseleave', function(){ 
-		draw = false;
-		return;	
-	});
-	});
-}
-
-//deleting colors with right click
-function deleteColor() {
 	var draw_del = false;
 	var bk_color = '';
+
+	// stops the right click from displaying menu 
 	document.oncontextmenu = function() {
 	return false;
 	};
 
+	//colors or delete the color with left/right click
 	$('#pixel_canvas').on('mousedown', 'td', function(event) {
 		switch (event.which) {
 			case 1:
+				draw = true; 
 				draw_del = false;
+				var color = $('#colorPicker').val();
+				$(this).css('background-color', color);
 				break;
 			case 2:
 				draw_del = false;
@@ -70,9 +49,11 @@ function deleteColor() {
 		}	
 	});
 
+	//prevents actions while the mouse is up
 	$('#pixel_canvas').on('mouseup', 'td', function(event) {
 		switch (event.which) {
 			case 1:
+				draw=false;
 				draw_del = false;
 				break;
 			case 2:
@@ -81,12 +62,16 @@ function deleteColor() {
 			case 3:
 				draw_del = false;
 				break;
-		}
-		
+		}		
 	});
+
+	//paints and deletes on mouseenter (left/right click)
 	$('#pixel_canvas').on('mouseenter', 'td', function(){
 		if(draw_del) {
 			$(this).css('background-color', bk_color); 
+		} else if(draw) {
+			var color = $('#colorPicker').val();
+			$(this).css('background-color', color); 
 		}
 		else {
 			return;
@@ -95,15 +80,18 @@ function deleteColor() {
 	//prevents coloring after reentering the grid 
 	$('#pixel_canvas').on('mouseleave', function(){ 
 		draw_del = false;
+		draw = false;
 		return;	
 	});
 	});
 }
 
+
 //calling functions on submit
 $('form').on('submit', function(e) {	
 	e.preventDefault();
 	makeGrid();
-	makeColor();
-	deleteColor();
+	// makeColor();
+	// deleteColor();
+	drawDelete();
 });
