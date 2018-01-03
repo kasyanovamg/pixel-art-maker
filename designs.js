@@ -87,10 +87,19 @@ function fillGrid() {
 	});
 }
 
+//clears the grid
+function clearGrid() {
+	$('#clear_grid').click(function() {
+		$('#pixel_canvas').css('background-color', '');
+		$('td').css('background-color', '');
+	});	
+}
+
 //calling functions on submit
 $('form').on('submit', function(e) {	
 	e.preventDefault();
 	makeGrid();
 	drawDelete();
-	fillGrid()
+	fillGrid();
+	clearGrid();
 });
