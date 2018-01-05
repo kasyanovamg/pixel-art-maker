@@ -28,14 +28,15 @@ function drawDelete() {
 	};
 	//colors or delete the color with left/right click
 	$('#pixel_canvas').on('mousedown', 'td', function(event) {
+		event.preventDefault(); //it's here to fix the bug when it keeps drawing with mouseup
 		switch (event.which) {
 			case 1:
 				draw = true; 
-				draw_del = false;
 				var color = $('#colorPicker').val();
 				$(this).css('background-color', color);
 				break;
 			case 2:
+				draw = false;
 				draw_del = false;
 				break;
 			case 3:
@@ -48,13 +49,15 @@ function drawDelete() {
 	$('#pixel_canvas').on('mouseup', 'td', function(event) {
 		switch (event.which) {
 			case 1:
-				draw=false;
+				draw = false;
 				draw_del = false;
 				break;
 			case 2:
+				draw = false;
 				draw_del = false;
 				break;
 			case 3:
+				draw = false;
 				draw_del = false;
 				break;
 		}		
@@ -63,7 +66,8 @@ function drawDelete() {
 	$('#pixel_canvas').on('mouseenter', 'td', function(){
 		if(draw_del) {
 			$(this).css('background-color', bk_color); 
-		} else if(draw) {
+		} 
+		if(draw) {
 			var color = $('#colorPicker').val();
 			$(this).css('background-color', color); 
 		}
@@ -94,6 +98,7 @@ function clearGrid() {
 		$('td').css('background-color', '');
 	});	
 }
+
 
 //calling functions on submit
 $('form').on('submit', function(e) {	
