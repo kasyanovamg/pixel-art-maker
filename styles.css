@@ -1,11 +1,13 @@
 body {
     text-align: center;
+    margin: 0;
 }
 
 h1 {
     font-family: Monoton;
-    font-size: 70px;
-    margin: 0.2em;
+    font-size: 50px;
+    margin: 0 0.2em 0.2em;
+    letter-spacing: 6px;
 }
 
 h2 {
@@ -37,4 +39,56 @@ td {
 
 input[type=number] {
     width: 6em;
+}
+/* end of default styles 
+
+   start of my styles */
+header {
+    background: linear-gradient(to bottom right, #50c3c9, #a469e0);
+    box-shadow: 5px 5px 7px #a8b9f4;
+    margin-bottom: 30px;
+}
+
+
+#sizePicker, .color_choices, .fill_clear_buttons {
+    text-align: left;
+
+}
+.chose_grid, .chose_color, .fill_clear_buttons {
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 15px;
+
+}
+.column {
+    border: 1px solid #a8b9f4;
+    border-radius: 10px;
+    height: 100px;
+    padding:  10px;
+    margin: 10px;
+
+}
+
+.user_inputs {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+@media screen and (min-width: 768px) {
+    .grid_size, .color_choices, .fill_clear_buttons {
+        width: 33.33%;
+    }   
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .grid_size, .color_choices, .fill_clear_buttons {
+        width: 50%;
+    } 
+    .grid_size {
+        width: 100%;
+    }  
+}
+@media screen and (max-width: 575px) {
+    .grid_size, .color_choices, .fill_clear_buttons {
+        width: 100%;
+    }   
 }

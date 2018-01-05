@@ -2,37 +2,54 @@
 <html>
 <head>
     <title>Pixel Art Maker!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- font Press Start 2P  -->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
-    <h1>Lab: Pixel Art Maker</h1>
-
-    <h2>Choose Grid Size</h2>
-    <form id="sizePicker">
-        Grid Height:
-        <input type="number" id="input_height" name="height" min="1" max="60" value="10">
-        Grid Width:
-        <input type="number" id="input_width" name="width" min="1" max="60" value="15">
-        <input type="submit">
-    </form>
-
-    <h2>Pick A Color</h2>
-    <input type="color" id="colorPicker" value="#000000">
-
-    <h2>Pick A Background Color</h2>
-    <input type="color" id="bg_colorPicker" value="#a0e29e">
-
-    <h2>Fill the grid</h2>
-    <button id="fill_grid"> Fill </button>
-
-    <h2>Clear the grid</h2>
-    <button id="clear_grid"> Clear </button>
-
-    <h2>Design Canvas</h2>
-    <table id="pixel_canvas"></table>
+    <header><h1>Lab: Pixel Art Maker</h1></header>
+    
+    <div class="user_inputs">
+        <div class="grid_size">
+            <div class="column">
+                <div class="chose_grid">Choose Grid Size</div>
+                <form id="sizePicker">
+                    Grid Height:
+                    <input type="number" id="input_height" name="height" min="1" max="60" value="10">
+                    <br>
+                    Grid Width:
+                    <input type="number" id="input_width" name="width" min="1" max="60" value="15">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+        <div class="color_choices">
+            <div class="column">
+                <div class="chose_color">Choose color for:</div>
+                <span>Drawing</span>
+                <input type="color" id="colorPicker" value="#000000">
+                <br>
+                <span>Background</span>
+                <input type="color" id="bg_colorPicker" value="#a0e29e">
+            </div>
+        </div>
+        <div class="fill_clear_buttons">
+            <div class="column">
+                <span>Fill the background</span>
+                <button id="fill_grid"> Fill </button>
+                <br>
+                <span>Clear the grid</span>
+                <button id="clear_grid"> Clear </button>
+            </div>
+        </div>
+        <div>
+            <h2>Design Canvas</h2>
+            <table id="pixel_canvas"></table>
+        </div>
+    </div>
 
     <script src="designs.js"></script>
 </body>
