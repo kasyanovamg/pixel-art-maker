@@ -74,13 +74,10 @@ header {
 }
 
 .user_inputs {
-/*     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%; */
-    display:grid;
+    margin: 0 auto;
+    width: 85%; 
+    display: grid;
     grid-auto-rows:minmax(100px, auto);
-
     justify-items:stretch;
     align-items:stretch;
 }
