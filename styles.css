@@ -54,10 +54,13 @@ header {
     text-align: left;
 
 }
-.chose_grid, .chose_color, .fill_clear_buttons {
+.chose_grid, .chose_color, .fill_clear_buttons, .design_canvas {
     font-family: 'Press Start 2P', cursive;
     margin-bottom: 15px;
 
+}
+.table {
+    margin: 0 auto;
 }
 .column {
     border: 1px solid #a8b9f4;
@@ -65,7 +68,9 @@ header {
     height: 100px;
     padding:  10px;
     margin: 10px;
-
+}
+.column:hover {
+    box-shadow: 5px 5px 7px #a8b9f4;
 }
 
 .user_inputs {
