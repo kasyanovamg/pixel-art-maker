@@ -51,7 +51,10 @@ header {
 
 
 #sizePicker, .color_choices, .fill_clear_buttons {
-    text-align: left;
+    text-align: center;
+    line-height: 40px;
+    font-family: Arial;
+    font-size: 15px;
 
 }
 .chose_grid, .chose_color, .fill_clear_buttons, .design_canvas {
@@ -59,6 +62,14 @@ header {
     margin-bottom: 15px;
     font-size: 30px;
 }
+.fill_clear_buttons {
+    line-height: 50px;
+    align-items: center;
+}
+.fill_clear_input {
+    padding: 15px 0 15px 0;
+}
+
 .table {
     margin: 0 auto;
 }
@@ -81,6 +92,7 @@ header {
     font-size: 15px;
     padding: 7px 10px 7px 10px;
     text-decoration: none;
+    outline:none; 
 }
 .button:hover {
     cursor: pointer;
@@ -100,6 +112,7 @@ header {
     border-radius: 10px;
     padding:  10px;
     margin: 10px;
+    background: #d6e0ff;
 }
 .grid_size:hover, .color_choices:hover, .fill_clear_buttons:hover {
     box-shadow: 5px 5px 7px #a8b9f4;

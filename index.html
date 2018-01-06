@@ -21,23 +21,27 @@
                 <br>
                 Grid Width:
                 <input type="number" id="input_width" name="width" min="1" max="60" value="30">
+                <br>
                 <input type="submit" class="button">
             </form>
         </div>
         <div class="color_choices">
             <div class="chose_color">Choose color for:</div>
             <span>Drawing</span>
-            <input type="color" id="colorPicker" value="#000000">
+            <input type="color" id="colorPicker" value="#02b3e4">
             <br>
             <span>Background</span>
-            <input type="color" id="bg_colorPicker" value="#a8b9f4">
+            <input type="color" id="bg_colorPicker" value="#d6e0ff">
         </div>
         <div class="fill_clear_buttons">
-            <span>Fill the background</span>
-            <button id="fill_grid" class="button"> Fill </button>
-            <br>
-            <span>Clear the grid</span>
-            <button id="clear_grid" class="button"> Clear </button>
+            <div class="fill_clear_input">
+                <span>Fill the background</span>
+                <button id="fill_grid" class="button"> Fill </button>
+            </div>
+            <div class="fill_clear_input"> 
+                <span>Clear the grid</span>
+                <button id="clear_grid" class="button"> Clear </button>
+            </div>
         </div>
         <div class="table">
             <div class="design_canvas">Design Canvas</div>
