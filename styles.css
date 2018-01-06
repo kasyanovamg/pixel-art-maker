@@ -64,10 +64,10 @@ header {
     margin: 0 auto;
 }
 .column {
-    border: 1px solid #a8b9f4;
+/*     border: 1px solid #a8b9f4;
     border-radius: 10px;
     padding:  10px;
-    margin: 10px;
+    margin: 10px; */
 }
 .column:hover {
     box-shadow: 5px 5px 7px #a8b9f4;
@@ -77,9 +77,16 @@ header {
     margin: 0 auto;
     width: 85%; 
     display: grid;
-    grid-auto-rows:minmax(100px, auto);
+    grid-auto-rows: max-content;
     justify-items:stretch;
     align-items:stretch;
+}
+
+.grid_size, .color_choices, .fill_clear_buttons {
+        border: 1px solid #a8b9f4;
+    border-radius: 10px;
+    padding:  10px;
+    margin: 10px;
 }
 @media screen and (min-width: 768px) {
     .grid_size {
