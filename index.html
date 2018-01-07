@@ -16,22 +16,23 @@
         <div class="grid_size">
             <div class="chose_grid">Choose Grid Size</div>
             <form id="sizePicker">
-                Grid Height:
-                <input type="number" id="input_height" name="height" min="1" max="60" value="20">
+                Grid Height: 
+                <input type="number" id="input_height" name="height" min="1" max="50" value="20">
                 <br>
-                Grid Width:
-                <input type="number" id="input_width" name="width" min="1" max="60" value="30">
+                Grid Width: 
+                <input type="number" id="input_width" name="width" min="1" max="50" value="30">
                 <br>
                 <input type="submit" class="button">
             </form>
         </div>
         <div class="color_choices">
             <div class="chose_color">Choose color for:</div>
-            <span>Drawing</span>
+            <span>Drawing(drag and draw): </span>
             <input type="color" id="colorPicker" value="#02b3e4">
             <br>
-            <span>Background</span>
+            <span>Background: </span>
             <input type="color" id="bg_colorPicker" value="#d6e0ff">
+            <p class="right_click_instructions">Delete your color with right click and drag.</p>
         </div>
         <div class="fill_clear_buttons">
             <div class="fill_clear_input">

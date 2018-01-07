@@ -38,7 +38,7 @@ td {
 }
 
 input[type=number] {
-    width: 6em;
+    width: 4em;
 }
 /* end of default styles 
 
@@ -61,6 +61,9 @@ header {
     font-family: 'Sedgwick Ave Display', cursive;
     margin-bottom: 15px;
     font-size: 30px;
+}
+.right_click_instructions {
+    margin:  0;
 }
 .fill_clear_buttons {
     line-height: 50px;
