@@ -98,7 +98,11 @@ function clearGrid() {
 		$('td').css('background-color', '');
 	});	
 }
-
+function removeBorders() {
+	$("#del_borders").click(function() {
+		$("tr,td").css("border", "none");
+	})
+}
 
 //calling functions on submit
 $('form').on('submit', function(e) {	
@@ -107,4 +111,5 @@ $('form').on('submit', function(e) {
 	drawDelete();
 	fillGrid();
 	clearGrid();
+	removeBorders()
 });

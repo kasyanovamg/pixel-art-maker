@@ -63,13 +63,14 @@ header {
     font-size: 30px;
 }
 .right_click_instructions {
-    margin:  0;
+    margin: 15px 0 0 0;
+    line-height: 15px;
 }
 .fill_clear_buttons {
-    line-height: 50px;
+    line-height: 10px;
     align-items: center;
 }
-.fill_clear_input {
+.fill_clear_input, .delete_borders {
     padding: 15px 0 15px 0;
 }
 
