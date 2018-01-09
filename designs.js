@@ -99,8 +99,10 @@ function clearGrid() {
 	});	
 }
 function removeBorders() {
-	$("#del_borders").click(function() {
-		$("tr,td").css("border", "none");
+	$("#del_borders").click(function() { //needs toggle
+		$("tr,td").toggleClass("borederless");
+		$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+		
 	})
 }
 
