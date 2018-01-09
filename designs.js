@@ -19,9 +19,9 @@ function makeGrid() {
 }
 
 function drawDelete() {
-	var draw = false;
-	var draw_del = false;
-	var bk_color = '';
+	let draw = false;
+	let draw_del = false;
+	let bk_color = '';
 	// stops the right click from displaying menu 
 	document.oncontextmenu = function() {
 	return false;
@@ -32,7 +32,7 @@ function drawDelete() {
 		switch (event.which) {
 			case 1:
 				draw = true; 
-				var color = $('#colorPicker').val();
+				let color = $('#colorPicker').val();
 				$(this).css('background-color', color);
 				break;
 			case 2:
@@ -68,7 +68,7 @@ function drawDelete() {
 			$(this).css('background-color', bk_color); 
 		} 
 		if(draw) {
-			var color = $('#colorPicker').val();
+			let color = $('#colorPicker').val();
 			$(this).css('background-color', color); 
 		}
 		else {
@@ -86,7 +86,7 @@ function drawDelete() {
 //function to fill the grid
 function fillGrid() {
 	$('#fill_grid').click(function() {
-		var bg_color = $('#bg_colorPicker').val();
+		let bg_color = $('#bg_colorPicker').val();
 		$('#pixel_canvas').css('background-color', bg_color);
 	});
 }
