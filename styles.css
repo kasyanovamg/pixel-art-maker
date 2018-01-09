@@ -57,16 +57,18 @@ header {
     font-size: 15px;
 
 }
-.chose_grid, .chose_color, .fill_clear_buttons, .design_canvas {
-    font-family: 'Sedgwick Ave Display', cursive;
+.chose_grid, .chose_color, .design_canvas {
+    font-family: Arial;
     margin-bottom: 15px;
     font-size: 30px;
+    font-weight: bold;
 }
 .right_click_instructions {
     margin: 15px 0 0 0;
     line-height: 15px;
 }
 .fill_clear_buttons {
+    font-size: 20px;
     line-height: 10px;
     align-items: center;
 }
@@ -117,7 +119,7 @@ header {
 .grid_size, .color_choices, .fill_clear_buttons {
     border: 1px solid #a8b9f4;
     border-radius: 10px;
-    padding:  10px;
+    padding:  10px 10px 5px 10px;
     margin: 10px;
     background: #d6e0ff;
 }
