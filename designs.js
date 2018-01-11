@@ -1,21 +1,25 @@
 // Select color input
 // Select size input
 // When size is submitted by the user, call makeGrid()
-
+const TABLE = $('#pixel_canvas');
+let borders = true;
+let del_borders = $("#del_borders");
 function makeGrid() {
 	let rows = $('#input_height').val();
 	let cols = $('#input_width').val();
+
 	
 	//remove the previous designs
-	$('#pixel_canvas').children().remove();
+	TABLE.children().remove();
 	
 	//loops to draw the grid
 	for (let i = 0 ; i < rows ; i++) {
-    	$('#pixel_canvas').append('<tr></tr>');
+    	TABLE.append('<tr></tr>');
     	for (let j = 0 ; j< cols; j++) {
-        	$('#pixel_canvas').children().last().append('<td></td>');
+        	TABLE.children().last().append('<td></td>');
     	}
     }	
+    borders = true;
 }
 
 function drawDelete() {
@@ -27,7 +31,7 @@ function drawDelete() {
 	return false;
 	};
 	//colors or delete the color with left/right click
-	$('#pixel_canvas').on('mousedown', 'td', function(event) {
+	TABLE.on('mousedown', 'td', function(event) {
 		event.preventDefault(); //it's here to fix the bug when it keeps drawing with mouseup
 		switch (event.which) {
 			case 1:
@@ -46,7 +50,7 @@ function drawDelete() {
 		}	
 	});
 	//prevents actions while the mouse is up
-	$('#pixel_canvas').on('mouseup', 'td', function(event) {
+	TABLE.on('mouseup', 'td', function(event) {
 		switch (event.which) {
 			case 1:
 				draw = false;
@@ -63,7 +67,7 @@ function drawDelete() {
 		}		
 	});
 	//paints and deletes on mouseenter (left/right click)
-	$('#pixel_canvas').on('mouseenter', 'td', function(){
+	TABLE.on('mouseenter', 'td', function(){
 		if(draw_del) {
 			$(this).css('background-color', bk_color); 
 		} 
@@ -75,7 +79,7 @@ function drawDelete() {
 			return;
 		}
 	//prevents coloring after reentering the grid 
-	$('#pixel_canvas').on('mouseleave', function(){ 
+	TABLE.on('mouseleave', function(){ 
 		draw_del = false;
 		draw = false;
 		return;	
@@ -87,23 +91,42 @@ function drawDelete() {
 function fillGrid() {
 	$('#fill_grid').click(function() {
 		let bg_color = $('#bg_colorPicker').val();
-		$('#pixel_canvas').css('background-color', bg_color);
+		TABLE.css('background-color', bg_color);
 	});
 }
 
 //clears the grid
 function clearGrid() {
 	$('#clear_grid').click(function() {
-		$('#pixel_canvas').css('background-color', '');
+		TABLE.css('background-color', '');
 		$('td').css('background-color', '');
 	});	
 }
 function removeBorders() {
-	$("#del_borders").click(function() { //needs toggle
-		$("tr,td").toggleClass("borederless");
-		$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+	
+
+	// del_borders.click(function() { 
+	// 	if (borders === true) {
+	// 		$("tr,td").addClass("borederless");
+	// 		del_borders.text('Show');
+	// 		borders = false;
+	// 		console.log(borders, "no borders"); //debugging in console
+	// 	} else {
+	// 		$("tr,td").removeClass("borederless");
+	// 		del_borders.text('Hide');
+	// 		borders = true;
+	// 	    console.log(borders); //debugging in console
+	// 	}
 		
-	})
+	// });
+
+	// toggle version of removeBorders()
+
+    del_borders.click(function() { 
+ 	$("tr,td").toggleClass("borederless");
+ 	$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
+ });
+
 }
 
 //calling functions on submit
@@ -113,5 +136,8 @@ $('form').on('submit', function(e) {
 	drawDelete();
 	fillGrid();
 	clearGrid();
-	removeBorders()
+	del_borders.text("Hide");
+	// removeBorders();
+	
 });
+removeBorders();

@@ -80,7 +80,7 @@ header {
     margin: 0 auto;
 }
 .borederless {
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .button {
