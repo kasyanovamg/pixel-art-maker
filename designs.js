@@ -2,8 +2,8 @@
 // Select size input
 // When size is submitted by the user, call makeGrid()
 const TABLE = $('#pixel_canvas');
-let borders = true;
-let del_borders = $("#del_borders");
+const DEL_BORDERS = $("#del_borders");
+
 function makeGrid() {
 	let rows = $('#input_height').val();
 	let cols = $('#input_width').val();
@@ -19,7 +19,6 @@ function makeGrid() {
         	TABLE.children().last().append('<td></td>');
     	}
     }	
-    borders = true;
 }
 
 function drawDelete() {
@@ -102,32 +101,12 @@ function clearGrid() {
 		$('td').css('background-color', '');
 	});	
 }
-function removeBorders() {
-	
-
-	// del_borders.click(function() { 
-	// 	if (borders === true) {
-	// 		$("tr,td").addClass("borederless");
-	// 		del_borders.text('Show');
-	// 		borders = false;
-	// 		console.log(borders, "no borders"); //debugging in console
-	// 	} else {
-	// 		$("tr,td").removeClass("borederless");
-	// 		del_borders.text('Hide');
-	// 		borders = true;
-	// 	    console.log(borders); //debugging in console
-	// 	}
-		
-	// });
-
-	// toggle version of removeBorders()
-
-    del_borders.click(function() { 
+(function removeBorders() {
+    DEL_BORDERS.click(function() { 
  	$("tr,td").toggleClass("borederless");
  	$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
  });
-
-}
+})();
 
 //calling functions on submit
 $('form').on('submit', function(e) {	
@@ -136,8 +115,6 @@ $('form').on('submit', function(e) {
 	drawDelete();
 	fillGrid();
 	clearGrid();
-	del_borders.text("Hide");
-	// removeBorders();
-	
+	DEL_BORDERS.text("Hide");
 });
-removeBorders();
+
