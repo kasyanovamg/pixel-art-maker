@@ -2,7 +2,7 @@
 // Select size input
 // When size is submitted by the user, call makeGrid()
 const TABLE = $('#pixel_canvas');
-const DEL_BORDERS = $("#del_borders");
+const DEL_BORDERS = $('#del_borders');
 
 function makeGrid() {
 	let rows = $('#input_height').val();
@@ -103,10 +103,19 @@ function clearGrid() {
 }
 (function removeBorders() {
     DEL_BORDERS.click(function() { 
- 	$("tr,td").toggleClass("borederless");
+ 	$('tr,td').toggleClass('borederless');
  	$(this).text($(this).text() == 'Show' ? 'Hide' : 'Show');
  });
 })();
+
+
+
+function cellSize() {
+	let size = $('#cell_size').val();
+	$('tr').css('height', size);
+	$('td').css('width', size);
+	
+}
 
 //calling functions on submit
 $('form').on('submit', function(e) {	
@@ -115,6 +124,8 @@ $('form').on('submit', function(e) {
 	drawDelete();
 	fillGrid();
 	clearGrid();
-	DEL_BORDERS.text("Hide");
+	DEL_BORDERS.text('Hide');
+
+	cellSize();
 });
 
