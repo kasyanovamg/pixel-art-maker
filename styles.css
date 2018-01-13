@@ -29,13 +29,13 @@ table {
     margin: 0 auto;
 }
 
-tr {
+/* tr {
     height: 20px;
 }
 
 td {
     width: 20px;
-}
+} */
 
 input[type=number] {
     width: 4em;

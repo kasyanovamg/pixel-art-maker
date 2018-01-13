@@ -7,7 +7,6 @@ const DEL_BORDERS = $('#del_borders');
 function makeGrid() {
 	let rows = $('#input_height').val();
 	let cols = $('#input_width').val();
-
 	
 	//remove the previous designs
 	TABLE.children().remove();
@@ -101,6 +100,16 @@ function clearGrid() {
 		$('td').css('background-color', '');
 	});	
 }
+
+//user can chose custom size in pixels
+function cellSize() {
+	let size = $('#cell_size').val();
+	let size_height = parseInt(size) + 2;
+	$('tr').css('height', size);
+	$('td').css('width', size);	
+}
+
+//removes borders
 (function removeBorders() {
     DEL_BORDERS.click(function() { 
  	$('tr,td').toggleClass('borederless');
@@ -109,14 +118,6 @@ function clearGrid() {
 })();
 
 
-
-function cellSize() {
-	let size = $('#cell_size').val();
-	$('tr').css('height', size);
-	$('td').css('width', size);
-	
-}
-
 //calling functions on submit
 $('form').on('submit', function(e) {	
 	e.preventDefault();
@@ -124,8 +125,52 @@ $('form').on('submit', function(e) {
 	drawDelete();
 	fillGrid();
 	clearGrid();
-	DEL_BORDERS.text('Hide');
-
 	cellSize();
+	DEL_BORDERS.text('Hide');	
+sizes();
 });
+
+
+
+
+function sizes() {
+
+// start
+	var m_width = parseInt($("#input_width" ).val()) * parseInt($('#cell_size').val());
+	console.log($("body").innerWidth() + " while the tables are "+m_width);
+	if ($("body").innerWidth() < m_width + 100 ) {
+		console.log('tables too big')
+	}
+
+// end
+let cell_size = $('#cell_size').val();
+let cell_width = $("#input_width").val();
+let perfect_size = Math.floor(($("body").innerWidth()-100)/cell_size);
+console.log(perfect_size);
+
+    $("#input_width").change(function() {
+        var max = $(this).val();
+        if (max < perfect_size)
+       	{	
+       		$(this).attr('max', max);
+        } 
+        else {
+        	$(this).attr('max', perfect_size);
+        }
+          console.log(max);  
+    }); 
+    $("#cell_size" ).change(function() {
+        var max_cell = $(this).val();
+        if (max_cell < Math.floor(($("body").innerWidth()-100)/cell_width))
+       	{	
+       		$(this).attr('max', max_cell);
+        } 
+        else {
+        	$(this).attr('max', Math.floor(($("body").innerWidth()-100)/cell_width));
+        }
+          console.log(max_cell);  
+    });
+
+
+};
 
