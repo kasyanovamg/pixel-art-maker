@@ -105,7 +105,11 @@ function clearGrid() {
 function cellSize() {
 	let size = $('#cell_size').val();
 	let size_height = parseInt(size) + 2;
-	$('tr').css('height', size);
+	if (size < 20 ) {
+		$('tr').css('height', size_height);
+	} else {
+		$('tr').css('height', size);	
+	}
 	$('td').css('width', size);	
 }
 
@@ -118,31 +122,15 @@ function cellSize() {
 })();
 
 
-//calling functions on submit
-$('form').on('submit', function(e) {	
-	e.preventDefault();
-	makeGrid();
-	drawDelete();
-	fillGrid();
-	clearGrid();
-	cellSize();
-	DEL_BORDERS.text('Hide');	
-sizes();
-});
-
-
-
+//regulates the number  and size of cells depending on the width of the screen
 
 function sizes() {
-
-// start
 	var m_width = parseInt($("#input_width" ).val()) * parseInt($('#cell_size').val());
 	console.log($("body").innerWidth() + " while the tables are "+m_width);
 	if ($("body").innerWidth() < m_width + 100 ) {
 		console.log('tables too big')
 	}
 
-// end
 let cell_size = $('#cell_size').val();
 let cell_width = $("#input_width").val();
 let perfect_size = Math.floor(($("body").innerWidth()-100)/cell_size);
@@ -171,6 +159,20 @@ console.log(perfect_size);
           console.log(max_cell);  
     });
 
-
 };
+
+//calling functions on submit
+$('form').on('submit', function(e) {	
+	e.preventDefault();
+	makeGrid();
+	drawDelete();
+	fillGrid();
+	clearGrid();
+	cellSize();
+	DEL_BORDERS.text('Hide');	
+	sizes();
+});
+
+
+
 
